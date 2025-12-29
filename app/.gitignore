@@ -1,0 +1,3 @@
+# Este módulo hereda las reglas del .gitignore raíz.
+# Puedes añadir ignores específicos del módulo aquí si alguna vez hacen falta.
+/build
