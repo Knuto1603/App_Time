@@ -21,7 +21,7 @@ fun BentoCard(
     value: String,
     subtitle: String? = null,
     iconCode: String? = null,
-    containerColor: Color = Color(0xFFF7F7F9),
+    containerColor: Color = Color(0xFFF6F6F6),
     isHighlight: Boolean = false
 ) {
     Card(

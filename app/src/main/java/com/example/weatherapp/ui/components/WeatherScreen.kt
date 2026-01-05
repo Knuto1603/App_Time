@@ -11,6 +11,10 @@ import androidx.compose.ui.unit.dp
 import com.example.weatherapp.AppConfig
 import com.example.weatherapp.data.viewmodel.WeatherUiState
 import com.example.weatherapp.data.viewmodel.WeatherViewModel
+import com.example.weatherapp.ui.components.WeatherIcons.FEELS_LIKE
+import com.example.weatherapp.ui.components.WeatherIcons.SKY
+import com.example.weatherapp.ui.components.WeatherIcons.UV
+import com.example.weatherapp.ui.components.WeatherIcons.WIND
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.maps.android.compose.*
 
@@ -91,20 +95,20 @@ fun WeatherScreen(viewModel: WeatherViewModel) {
                 is WeatherUiState.Success -> {
 
                     val days = (uiState as WeatherUiState.Success).fullData
-                    val day = selected ?: days.getOrNull(2) // HOY por defecto
+                    val day = selected ?: days.getOrNull(2)
 
                     if (day != null) {
 
                         item {
                             Column(modifier = Modifier.padding(horizontal = 10.dp)) {
 
-                                // 🌡️ TEMPERATURA PRINCIPAL
                                 BentoCard(
                                     title = "Temperatura",
                                     value = "${(day.tempActual ?: day.tempAvg).toInt()}º",
                                     subtitle = "Máx ${day.tempMax.toInt()}º • Mín ${day.tempMin.toInt()}º",
-                                    containerColor = Color(0xFFE3F2FD),
+                                    containerColor = Color(0xFFB8DAFF),
                                     isHighlight = true,
+                                    iconCode = day.icon,
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .height(160.dp)
@@ -115,6 +119,7 @@ fun WeatherScreen(viewModel: WeatherViewModel) {
                                     BentoCard(
                                         title = "Sensación",
                                         value = "${day.sensacion.toInt()}º",
+                                        iconCode = FEELS_LIKE,
                                         modifier = Modifier
                                             .weight(1f)
                                             .height(120.dp)
@@ -123,6 +128,7 @@ fun WeatherScreen(viewModel: WeatherViewModel) {
                                     BentoCard(
                                         title = "Viento",
                                         value = "${day.viento.toInt()} m/s",
+                                        iconCode = WIND,
                                         modifier = Modifier
                                             .weight(1f)
                                             .height(120.dp)
@@ -134,7 +140,7 @@ fun WeatherScreen(viewModel: WeatherViewModel) {
                                     BentoCard(
                                         title = "Cielo",
                                         value = day.descripcion.replaceFirstChar { it.uppercase() },
-                                        containerColor = Color(0xFFF1F1F1),
+                                        iconCode = SKY,
                                         modifier = Modifier
                                             .weight(1f)
                                             .height(120.dp)
@@ -143,6 +149,7 @@ fun WeatherScreen(viewModel: WeatherViewModel) {
                                     BentoCard(
                                         title = "Índice UV",
                                         value = day.uv.toInt().toString(),
+                                        iconCode = UV,
                                         modifier = Modifier
                                             .weight(1f)
                                             .height(120.dp)
@@ -151,7 +158,6 @@ fun WeatherScreen(viewModel: WeatherViewModel) {
                             }
                         }
 
-                        // 📆 TIMELINE
                         item {
                             TimelineSection(
                                 days = days,

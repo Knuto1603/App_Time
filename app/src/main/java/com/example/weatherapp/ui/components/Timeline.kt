@@ -61,7 +61,7 @@ fun TimelineItem(
 ) {
     Card(
         modifier = Modifier
-            .width(120.dp)
+            .width(125.dp)
             .clickable(enabled = isActive, onClick = onClick),
         shape = RoundedCornerShape(24.dp),
         colors = CardDefaults.cardColors(
@@ -69,35 +69,42 @@ fun TimelineItem(
         )
     ) {
         Column(
-            modifier = Modifier.padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            modifier = Modifier.padding(10.dp),
+            horizontalAlignment = Alignment.Start
         ) {
 
             Text(
                 text = label,
-                fontSize = 11.sp,
+                fontSize = 14.sp,
                 color = if (isActive) Color.Gray else Color.LightGray
             )
 
-            Spacer(modifier = Modifier.height(6.dp))
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 5.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                iconCode?.let {
+                    AsyncImage(
+                        model = "https://openweathermap.org/img/wn/${it}@4x.png",
+                        contentDescription = null,
+                        modifier = Modifier.size(40.dp),
+                        contentScale = ContentScale.Fit
+                    )
+                }
 
-            iconCode?.let {
-                AsyncImage(
-                    model = "https://openweathermap.org/img/wn/${it}@4x.png",
-                    contentDescription = null,
-                    modifier = Modifier.size(40.dp),
-                    contentScale = ContentScale.Fit
+                Text(
+                    text = temp,
+                    fontSize = 20.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = if (isActive) Color.Black else Color.LightGray
                 )
+
             }
 
-            Spacer(modifier = Modifier.height(4.dp))
 
-            Text(
-                text = temp,
-                fontSize = 18.sp,
-                fontWeight = FontWeight.Bold,
-                color = if (isActive) Color.Black else Color.LightGray
-            )
         }
     }
 }

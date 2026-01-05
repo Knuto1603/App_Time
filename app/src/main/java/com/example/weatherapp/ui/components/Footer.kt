@@ -26,6 +26,6 @@ fun AppFooter() {
         Divider(color = Color(0xFFEEEEEE))
         Spacer(modifier = Modifier.height(16.dp))
         Text("Grupo: Alburqueque - Aranda - Morán", fontSize = 10.sp, color = Color.LightGray)
-        Text("Weather App • 2024", fontSize = 10.sp, color = Color.LightGray)
+        Text("Weather App • 2026", fontSize = 10.sp, color = Color.LightGray)
     }
 }

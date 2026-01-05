@@ -6,4 +6,6 @@ object WeatherIcons {
     const val UV = "https://img.icons8.com/ios-glyphs/60/737373/sun--v1.png"
     const val PRESSURE = "https://img.icons8.com/ios-glyphs/60/737373/barometer.png"
     const val CALENDAR = "https://img.icons8.com/ios-glyphs/60/737373/calendar.png"
+    const val FEELS_LIKE = "https://img.icons8.com/ios-glyphs/60/737373/temperature-sensitive.png"
+    const val SKY = "https://img.icons8.com/ios-glyphs/60/737373/cloud.png"
 }
