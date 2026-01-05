@@ -7,7 +7,7 @@ import retrofit2.http.Query
 
 interface OpenWeatherApi {
 
-    @GET("data/3.0/onecall")
+    @GET("onecall")
     suspend fun getOneCall(
         @Query("lat") lat: Double,
         @Query("lon") lon: Double,
@@ -16,7 +16,7 @@ interface OpenWeatherApi {
         @Query("appid") apiKey: String
     ): OneCallResponse
 
-    @GET("data/3.0/onecall/timemachine")
+    @GET("onecall/timemachine")
     suspend fun getTimeMachine(
         @Query("lat") lat: Double,
         @Query("lon") lon: Double,

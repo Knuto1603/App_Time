@@ -7,7 +7,7 @@ import java.util.TimeZone
 
 fun Long.toDate(): String {
     val date = Date(this * 1000) // seconds → millis
-    val format = SimpleDateFormat("dd/MM", Locale.getDefault())
+    val format = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
     format.timeZone = TimeZone.getDefault()
     return format.format(date)
 }
