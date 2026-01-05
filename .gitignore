@@ -67,11 +67,6 @@ lint-cache/
 # Firebase / Google Services (si aplica)
 # google-services.json
 
-# --- Secretos del proyecto ---
-# Ojo: tu AppConfig.kt tiene la API key hardcodeada.
-# Lo ideal es moverla a local.properties/gradle.properties y leerla en build.gradle.
-app/src/main/java/com/example/weatherapp/AppConfig.kt
-
 # Si creas un archivo alternativo local para secretos
 **/*secrets*.properties
 **/*secret*.properties
