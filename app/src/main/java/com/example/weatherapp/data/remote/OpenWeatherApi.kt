@@ -1,10 +1,7 @@
 package com.example.weatherapp.data.remote
 
-import com.example.weatherapp.AppConfig
 import com.example.weatherapp.data.remote.dto.OneCallResponse
 import com.example.weatherapp.data.remote.dto.TimeMachineResponse
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
